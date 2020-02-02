@@ -4,6 +4,7 @@ import { Basket } from "../types/basket";
 import { Product } from "../types/product";
 import Filter from "./ColourFilter";
 import ListingItem from "./ListingItem";
+import "./ProductListing.css";
 
 const dataUrl =
   "https://my-json-server.typicode.com/benirvingplt/products/products";
@@ -47,12 +48,16 @@ const ProductListing = () => {
           setBasket={setBasket}
         />
       ))}
-      <div>
-        Total:{" "}
-        {sumBasket().toLocaleString("en-GB", {
-          style: "currency",
-          currency: "GBP",
-        })}
+      <div className="total">
+        <div></div>
+        <div></div>
+        <div>
+          Total:{" "}
+          {sumBasket().toLocaleString("en-GB", {
+            style: "currency",
+            currency: "GBP",
+          })}
+        </div>
       </div>
     </>
   ) : (

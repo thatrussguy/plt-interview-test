@@ -1,0 +1,11 @@
+.listing-item,
+.total {
+  display: grid;
+  grid-template-columns: 150px 400px auto;
+  justify-items: start;
+  align-items: center;
+}
+
+.listing-item {
+  margin-top: 10px;
+}

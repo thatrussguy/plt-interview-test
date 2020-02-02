@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Basket } from "../types/basket";
 import { Product } from "../types/product";
+import "./ListingItem.css";
 
 const ListingItem = ({
   basket,
@@ -12,11 +13,11 @@ const ListingItem = ({
   setBasket: Dispatch<SetStateAction<Basket>>;
 }) => {
   return (
-    <>
-      <div>
+    <div className="listing-item">
+      <div className="item-image">
         <img alt={name} height={160} src={img} />
       </div>
-      <div>
+      <div className="item-details">
         <p>{name}</p>
         <p>
           {price.toLocaleString("en-GB", {
@@ -28,6 +29,7 @@ const ListingItem = ({
       <div>
         <div>
           <button
+            className="button"
             disabled={!basket[id]}
             onClick={() => setBasket({ ...basket, [id]: basket[id] - 1 })}
           >
@@ -35,6 +37,7 @@ const ListingItem = ({
           </button>{" "}
           {basket[id] || 0}{" "}
           <button
+            className="button"
             onClick={() =>
               setBasket({ ...basket, [id]: basket[id] ? basket[id] + 1 : 1 })
             }
@@ -44,6 +47,7 @@ const ListingItem = ({
         </div>
         <div>
           <button
+            className="button"
             disabled={!basket[id]}
             onClick={() => setBasket({ ...basket, [id]: 0 })}
           >
@@ -51,7 +55,7 @@ const ListingItem = ({
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

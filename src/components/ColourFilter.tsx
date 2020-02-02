@@ -13,7 +13,7 @@ const ColourFilter = ({
   return (
     <div className="colour-filter">
       <select onChange={({ target: { value } }) => setFilter(value)}>
-        <option value="">{filter ? "Clear filter" : "Colour filter"}</option>
+        <option value="">{filter ? "All colours" : "Colour filter"}</option>
         {[...new Set(products.map(({ colour }) => colour))].map(colour => (
           <option key={colour} value={colour}>
             {colour}
