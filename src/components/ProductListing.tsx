@@ -13,14 +13,16 @@ const emptyBasket: Basket = {};
 
 const ProductListing = () => {
   const [basket, setBasket] = useState(emptyBasket);
-  const [filter, setFilter] = useState();
-  const [products, setProducts] = useState();
+  const [filter, setFilter] = useState("");
+  const [products, setProducts] = useState([]);
 
   const sumBasket = (): number => {
     return Object.entries(basket).reduce((sum, [id, quantity]) => {
       sum +=
         quantity *
-        products.find((product: Product) => product.id === Number(id)).price;
+        products.find((product: Product) => product.id === Number(id))![
+          "price"
+        ];
       return sum;
     }, 0);
   };
@@ -34,7 +36,7 @@ const ProductListing = () => {
     fetchData();
   }, []);
 
-  return products ? (
+  return products.length ? (
     <>
       <Filter filter={filter} products={products} setFilter={setFilter} />
       {(filter
